@@ -222,7 +222,7 @@ body .c1 { color: #808080 }  /* Comment.Single */
   body .mh { color: #688ec8 }  /* Literal.Number.Hex */
   body .mi { color: #688ec8 }  /* Literal.Number.Integer */
   body .mo { color: #688ec8 }  /* Literal.Number.Oct */
-  body .s  { color: #718e72 }  /* Literal.String */
+  body .s, body .s2  { color: #718e72 }  /* Literal.String */
   body .sc { color: #718e72 }  /* Literal.String.Char */
   body .gp { color: #8a6ab1 }  /* Generic.Prompt */
   body .go { color: #868686 }  /* Generic.Output */

@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Go by Example: Sorting</title>
+    <title>Node.js by Example: Sorting</title>
     <link rel=stylesheet href="site.css">
   </head>
   <script>
@@ -24,7 +24,7 @@
   </script>
   <body>
     <div class="example" id="sorting">
-      <h2><a href="./">Go by Example</a>: Sorting</h2>
+      <h2><a href="./">Node.js by Example</a>: Sorting</h2>
       
       <table>
         
@@ -148,7 +148,7 @@ a slice is already in sorted order.</p>
     </div>
     <script>
       var codeLines = [];
-      codeLines.push('');codeLines.push('package main\u000A');codeLines.push('import (\u000A    \"fmt\"\u000A    \"slices\"\u000A)\u000A');codeLines.push('func main() {\u000A');codeLines.push('    strs :\u003D []string{\"c\", \"a\", \"b\"}\u000A    slices.Sort(strs)\u000A    fmt.Println(\"Strings:\", strs)\u000A');codeLines.push('    ints :\u003D []int{7, 2, 4}\u000A    slices.Sort(ints)\u000A    fmt.Println(\"Ints:   \", ints)\u000A');codeLines.push('    s :\u003D slices.IsSorted(ints)\u000A    fmt.Println(\"Sorted: \", s)\u000A}\u000A');codeLines.push('');
+      codeLines.push('');codeLines.push('');codeLines.push('');codeLines.push('');codeLines.push('');codeLines.push('');codeLines.push('');codeLines.push('');
     </script>
     <script src="site.js" async></script>
   </body>

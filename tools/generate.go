@@ -29,27 +29,27 @@ func verbose() bool {
 	return len(os.Getenv("VERBOSE")) > 0
 }
 
-func check(err error) {
+func checkErr(err error) {
 	if err != nil {
 		panic(err)
 	}
 }
 
-func isDir(path string) bool {
+func isDirFromString(path string) bool {
 	fileStat, _ := os.Stat(path)
 	return fileStat.IsDir()
 }
 
 func ensureDir(dir string) {
 	err := os.MkdirAll(dir, 0755)
-	check(err)
+	checkErr(err)
 }
 
 func copyFile(src, dst string) {
 	dat, err := os.ReadFile(src)
-	check(err)
+	checkErr(err)
 	err = os.WriteFile(dst, dat, 0644)
-	check(err)
+	checkErr(err)
 }
 
 func sha1Sum(s string) string {
@@ -61,7 +61,7 @@ func sha1Sum(s string) string {
 
 func mustReadFile(path string) string {
 	bytes, err := os.ReadFile(path)
-	check(err)
+	checkErr(err)
 	return string(bytes)
 }
 
@@ -69,14 +69,14 @@ func markdown(src string) string {
 	return string(blackfriday.Run([]byte(src)))
 }
 
-func readLines(path string) []string {
+func readLinesFromString(path string) []string {
 	src := mustReadFile(path)
 	return strings.Split(src, "\n")
 }
 
 func mustGlob(glob string) []string {
 	paths, err := filepath.Glob(glob)
-	check(err)
+	checkErr(err)
 	return paths
 }
 
@@ -85,6 +85,10 @@ func whichLexer(path string) string {
 		return "go"
 	} else if strings.HasSuffix(path, ".sh") {
 		return "console"
+	} else if strings.HasSuffix(path, ".js") {
+		return "javascript"
+	} else if strings.HasSuffix(path, "ts") {
+		return "typescript"
 	}
 	panic("No lexer for " + path)
 }
@@ -115,7 +119,7 @@ type Example struct {
 }
 
 func parseHashFile(sourcePath string) (string, string) {
-	lines := readLines(sourcePath)
+	lines := readLinesFromString(sourcePath)
 	return lines[0], lines[1]
 }
 
@@ -125,10 +129,10 @@ func resetURLHashFile(codehash, code, sourcePath string) string {
 	}
 	payload := strings.NewReader(code)
 	resp, err := http.Post("https://play.golang.org/share", "text/plain", payload)
-	check(err)
+	checkErr(err)
 	defer resp.Body.Close()
 	body, err := io.ReadAll(resp.Body)
-	check(err)
+	checkErr(err)
 	urlkey := string(body)
 	data := fmt.Sprintf("%s\n%s\n", codehash, urlkey)
 	os.WriteFile(sourcePath, []byte(data), 0644)
@@ -141,7 +145,7 @@ func parseSegs(sourcePath string) ([]*Seg, string) {
 		source []string
 	)
 	// Convert tabs to spaces for uniform rendering.
-	for _, line := range readLines(sourcePath) {
+	for _, line := range readLinesFromString(sourcePath) {
 		lines = append(lines, strings.Replace(line, "\t", "    ", -1))
 		source = append(source, line)
 	}
@@ -199,11 +203,13 @@ func chromaFormat(code, filePath string) string {
 		lexer = lexers.Fallback
 	}
 
+
 	if strings.HasSuffix(filePath, ".sh") {
 		lexer = SimpleShellOutputLexer
 	}
 
 	lexer = chroma.Coalesce(lexer)
+	
 
 	style := styles.Get("swapoff")
 	if style == nil {
@@ -211,10 +217,10 @@ func chromaFormat(code, filePath string) string {
 	}
 	formatter := html.New(html.WithClasses(true))
 	iterator, err := lexer.Tokenise(nil, string(code))
-	check(err)
+	checkErr(err)
 	buf := new(bytes.Buffer)
 	err = formatter.Format(buf, style, iterator)
-	check(err)
+	checkErr(err)
 	return buf.String()
 }
 
@@ -229,7 +235,10 @@ func parseAndRenderSegs(sourcePath string) ([]*Seg, string) {
 			seg.CodeRendered = chromaFormat(seg.Code, sourcePath)
 
 			// adding the content to the js code for copying to the clipboard
-			if strings.HasSuffix(sourcePath, ".go") {
+			// if strings.HasSuffix(sourcePath, ".go") {
+			// 	seg.CodeForJs = strings.Trim(seg.Code, "\n") + "\n"
+			// }
+			if strings.HasSuffix(sourcePath, ".js") || strings.HasSuffix(sourcePath, ".ts") {
 				seg.CodeForJs = strings.Trim(seg.Code, "\n") + "\n"
 			}
 		}
@@ -243,7 +252,7 @@ func parseAndRenderSegs(sourcePath string) ([]*Seg, string) {
 
 func parseExamples() []*Example {
 	var exampleNames []string
-	for _, line := range readLines("examples.txt") {
+	for _, line := range readLinesFromString("examples.txt") {
 		if line != "" && !strings.HasPrefix(line, "#") {
 			exampleNames = append(exampleNames, line)
 		}
@@ -263,7 +272,7 @@ func parseExamples() []*Example {
 		example.Segs = make([][]*Seg, 0)
 		sourcePaths := mustGlob("examples/" + exampleID + "/*")
 		for _, sourcePath := range sourcePaths {
-			if !isDir(sourcePath) {
+			if !isDirFromString(sourcePath) {
 				if strings.HasSuffix(sourcePath, ".hash") {
 					example.GoCodeHash, example.URLHash = parseHashFile(sourcePath)
 				} else {
@@ -300,9 +309,9 @@ func renderIndex(examples []*Example) {
 	template.Must(indexTmpl.Parse(mustReadFile("templates/footer.tmpl")))
 	template.Must(indexTmpl.Parse(mustReadFile("templates/index.tmpl")))
 	indexF, err := os.Create(siteDir + "/index.html")
-	check(err)
+	checkErr(err)
 	defer indexF.Close()
-	check(indexTmpl.Execute(indexF, examples))
+	checkErr(indexTmpl.Execute(indexF, examples))
 }
 
 func renderExamples(examples []*Example) {
@@ -314,9 +323,9 @@ func renderExamples(examples []*Example) {
 	template.Must(exampleTmpl.Parse(mustReadFile("templates/example.tmpl")))
 	for _, example := range examples {
 		exampleF, err := os.Create(siteDir + "/" + example.ID)
-		check(err)
+		checkErr(err)
 		defer exampleF.Close()
-		check(exampleTmpl.Execute(exampleF, example))
+		checkErr(exampleTmpl.Execute(exampleF, example))
 	}
 }
 
@@ -328,9 +337,9 @@ func render404() {
 	template.Must(tmpl.Parse(mustReadFile("templates/footer.tmpl")))
 	template.Must(tmpl.Parse(mustReadFile("templates/404.tmpl")))
 	file, err := os.Create(siteDir + "/404.html")
-	check(err)
+	checkErr(err)
 	defer file.Close()
-	check(tmpl.Execute(file, ""))
+	checkErr(tmpl.Execute(file, ""))
 }
 
 func main() {

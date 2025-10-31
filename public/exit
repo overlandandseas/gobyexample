@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Go by Example: Exit</title>
+    <title>Node.js by Example: Exit</title>
     <link rel=stylesheet href="site.css">
   </head>
   <script>
@@ -20,7 +20,7 @@
   </script>
   <body>
     <div class="example" id="exit">
-      <h2><a href="./">Go by Example</a>: Exit</h2>
+      <h2><a href="./">Node.js by Example</a>: Exit</h2>
       
       <table>
         
@@ -161,7 +161,7 @@ the status in the terminal.</p>
     </div>
     <script>
       var codeLines = [];
-      codeLines.push('');codeLines.push('package main\u000A');codeLines.push('import (\u000A    \"fmt\"\u000A    \"os\"\u000A)\u000A');codeLines.push('func main() {\u000A');codeLines.push('    defer fmt.Println(\"!\")\u000A');codeLines.push('    os.Exit(3)\u000A}\u000A');codeLines.push('');codeLines.push('');codeLines.push('');codeLines.push('');
+      codeLines.push('');codeLines.push('');codeLines.push('');codeLines.push('');codeLines.push('');codeLines.push('');codeLines.push('');codeLines.push('');codeLines.push('');codeLines.push('');
     </script>
     <script src="site.js" async></script>
   </body>

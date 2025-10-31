@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Go by Example: Custom Errors</title>
+    <title>Node.js by Example: Custom Errors</title>
     <link rel=stylesheet href="site.css">
   </head>
   <script>
@@ -24,7 +24,7 @@
   </script>
   <body>
     <div class="example" id="custom-errors">
-      <h2><a href="./">Go by Example</a>: Custom Errors</h2>
+      <h2><a href="./">Node.js by Example</a>: Custom Errors</h2>
       
       <table>
         
@@ -182,7 +182,7 @@ returns <code>false</code>.</p>
     </div>
     <script>
       var codeLines = [];
-      codeLines.push('');codeLines.push('package main\u000A');codeLines.push('import (\u000A    \"errors\"\u000A    \"fmt\"\u000A)\u000A');codeLines.push('type argError struct {\u000A    arg     int\u000A    message string\u000A}\u000A');codeLines.push('func (e *argError) Error() string {\u000A    return fmt.Sprintf(\"%d - %s\", e.arg, e.message)\u000A}\u000A');codeLines.push('func f(arg int) (int, error) {\u000A    if arg \u003D\u003D 42 {\u000A');codeLines.push('        return -1, \u0026argError{arg, \"can\'t work with it\"}\u000A    }\u000A    return arg + 3, nil\u000A}\u000A');codeLines.push('func main() {\u000A');codeLines.push('    _, err :\u003D f(42)\u000A    var ae *argError\u000A    if errors.As(err, \u0026ae) {\u000A        fmt.Println(ae.arg)\u000A        fmt.Println(ae.message)\u000A    } else {\u000A        fmt.Println(\"err doesn\'t match argError\")\u000A    }\u000A}\u000A');codeLines.push('');
+      codeLines.push('');codeLines.push('');codeLines.push('');codeLines.push('');codeLines.push('');codeLines.push('');codeLines.push('');codeLines.push('');codeLines.push('');codeLines.push('');
     </script>
     <script src="site.js" async></script>
   </body>

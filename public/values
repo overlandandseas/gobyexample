@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Go by Example: Values</title>
+    <title>Node.js by Example: Values</title>
     <link rel=stylesheet href="site.css">
   </head>
   <script>
@@ -24,14 +24,14 @@
   </script>
   <body>
     <div class="example" id="values">
-      <h2><a href="./">Go by Example</a>: Values</h2>
+      <h2><a href="./">Node.js by Example</a>: Values</h2>
       
       <table>
         
         <tr>
           <td class="docs">
-            <p>Go has various value types including strings,
-integers, floats, booleans, etc. Here are a few
+            <p>Javascript has various value types including strings,
+numbers, booleans, etc. Here are a few
 basic examples.</p>
 
           </td>
@@ -43,54 +43,34 @@ basic examples.</p>
         
         <tr>
           <td class="docs">
-            
-          </td>
-          <td class="code leading">
-            <a href="https://go.dev/play/p/YnVS3LZr8pk"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
-          <pre class="chroma"><code><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span></span></span></code></pre>
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            
-          </td>
-          <td class="code leading">
-            
-          <pre class="chroma"><code><span class="line"><span class="cl"><span class="kn">import</span> <span class="s">&#34;fmt&#34;</span></span></span></code></pre>
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            
-          </td>
-          <td class="code leading">
-            
-          <pre class="chroma"><code><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span></span></span></code></pre>
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
             <p>Strings, which can be added together with <code>+</code>.</p>
 
           </td>
           <td class="code leading">
             
-          <pre class="chroma"><code><span class="line"><span class="cl">    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;go&#34;</span> <span class="o">+</span> <span class="s">&#34;lang&#34;</span><span class="p">)</span></span></span></code></pre>
+          <pre class="chroma"><code><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&#34;node&#34;</span> <span class="o">+</span> <span class="s2">&#34;.js&#34;</span><span class="p">);</span></span></span></code></pre>
           </td>
         </tr>
         
         <tr>
           <td class="docs">
-            <p>Integers and floats.</p>
+            <p>Javascript has one number type.</p>
 
           </td>
           <td class="code leading">
             
-          <pre class="chroma"><code><span class="line"><span class="cl">    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;1+1 =&#34;</span><span class="p">,</span> <span class="mi">1</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;7.0/3.0 =&#34;</span><span class="p">,</span> <span class="mf">7.0</span><span class="o">/</span><span class="mf">3.0</span><span class="p">)</span></span></span></code></pre>
+          <pre class="chroma"><code><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&#34;1+1 =&#34;</span><span class="p">,</span> <span class="mi">1</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span></span></span></code></pre>
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>It can be used for both integers and decimals.</p>
+
+          </td>
+          <td class="code leading">
+            
+          <pre class="chroma"><code><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&#34;7.0/3.0 =&#34;</span><span class="p">,</span> <span class="mf">7.0</span> <span class="o">/</span> <span class="mf">3.0</span><span class="p">);</span></span></span></code></pre>
           </td>
         </tr>
         
@@ -101,10 +81,9 @@ basic examples.</p>
           </td>
           <td class="code">
             
-          <pre class="chroma"><code><span class="line"><span class="cl">    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="kc">true</span> <span class="o">&amp;&amp;</span> <span class="kc">false</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="kc">true</span> <span class="o">||</span> <span class="kc">false</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(!</span><span class="kc">true</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre>
+          <pre class="chroma"><code><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="kc">true</span> <span class="o">&amp;&amp;</span> <span class="kc">false</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="kc">true</span> <span class="o">||</span> <span class="kc">false</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="o">!</span><span class="kc">true</span><span class="p">);</span></span></span></code></pre>
           </td>
         </tr>
         
@@ -118,8 +97,8 @@ basic examples.</p>
           </td>
           <td class="code">
             
-          <pre class="chroma"><code><span class="line"><span class="cl"><span class="gp">$</span> go run values.go
-</span></span><span class="line"><span class="cl"><span class="go">golang
+          <pre class="chroma"><code><span class="line"><span class="cl"><span class="gp">$</span> node values.js
+</span></span><span class="line"><span class="cl"><span class="go">node.js
 </span></span></span><span class="line"><span class="cl"><span class="go">1+1 = 2
 </span></span></span><span class="line"><span class="cl"><span class="go">7.0/3.0 = 2.3333333333333335
 </span></span></span><span class="line"><span class="cl"><span class="go">false
@@ -143,7 +122,7 @@ basic examples.</p>
     </div>
     <script>
       var codeLines = [];
-      codeLines.push('');codeLines.push('package main\u000A');codeLines.push('import \"fmt\"\u000A');codeLines.push('func main() {\u000A');codeLines.push('    fmt.Println(\"go\" + \"lang\")\u000A');codeLines.push('    fmt.Println(\"1+1 \u003D\", 1+1)\u000A    fmt.Println(\"7.0/3.0 \u003D\", 7.0/3.0)\u000A');codeLines.push('    fmt.Println(true \u0026\u0026 false)\u000A    fmt.Println(true || false)\u000A    fmt.Println(!true)\u000A}\u000A');codeLines.push('');
+      codeLines.push('');codeLines.push('console.log(\"node\" + \".js\");\u000A');codeLines.push('console.log(\"1+1 \u003D\", 1 + 1);\u000A');codeLines.push('console.log(\"7.0/3.0 \u003D\", 7.0 / 3.0);\u000A');codeLines.push('console.log(true \u0026\u0026 false);\u000Aconsole.log(true || false);\u000Aconsole.log(!true);\u000A');codeLines.push('');
     </script>
     <script src="site.js" async></script>
   </body>

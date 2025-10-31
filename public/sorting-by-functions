@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Go by Example: Sorting by Functions</title>
+    <title>Node.js by Example: Sorting by Functions</title>
     <link rel=stylesheet href="site.css">
   </head>
   <script>
@@ -24,7 +24,7 @@
   </script>
   <body>
     <div class="example" id="sorting-by-functions">
-      <h2><a href="./">Go by Example</a>: Sorting by Functions</h2>
+      <h2><a href="./">Node.js by Example</a>: Sorting by Functions</h2>
       
       <table>
         
@@ -186,7 +186,7 @@ doubt, <a href="testing-and-benchmarking">benchmark</a>!</p>
     </div>
     <script>
       var codeLines = [];
-      codeLines.push('');codeLines.push('package main\u000A');codeLines.push('import (\u000A    \"cmp\"\u000A    \"fmt\"\u000A    \"slices\"\u000A)\u000A');codeLines.push('func main() {\u000A    fruits :\u003D []string{\"peach\", \"banana\", \"kiwi\"}\u000A');codeLines.push('    lenCmp :\u003D func(a, b string) int {\u000A        return cmp.Compare(len(a), len(b))\u000A    }\u000A');codeLines.push('    slices.SortFunc(fruits, lenCmp)\u000A    fmt.Println(fruits)\u000A');codeLines.push('    type Person struct {\u000A        name string\u000A        age  int\u000A    }\u000A');codeLines.push('    people :\u003D []Person{\u000A        Person{name: \"Jax\", age: 37},\u000A        Person{name: \"TJ\", age: 25},\u000A        Person{name: \"Alex\", age: 72},\u000A    }\u000A');codeLines.push('    slices.SortFunc(people,\u000A        func(a, b Person) int {\u000A            return cmp.Compare(a.age, b.age)\u000A        })\u000A    fmt.Println(people)\u000A}\u000A');codeLines.push('');
+      codeLines.push('');codeLines.push('');codeLines.push('');codeLines.push('');codeLines.push('');codeLines.push('');codeLines.push('');codeLines.push('');codeLines.push('');codeLines.push('');
     </script>
     <script src="site.js" async></script>
   </body>

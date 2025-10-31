@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Go by Example: Embed Directive</title>
+    <title>Node.js by Example: Embed Directive</title>
     <link rel=stylesheet href="site.css">
   </head>
   <script>
@@ -24,7 +24,7 @@
   </script>
   <body>
     <div class="example" id="embed-directive">
-      <h2><a href="./">Go by Example</a>: Embed Directive</h2>
+      <h2><a href="./">Node.js by Example</a>: Embed Directive</h2>
       
       <table>
         
@@ -193,7 +193,7 @@ this example can only be run on your local machine.)</p>
     </div>
     <script>
       var codeLines = [];
-      codeLines.push('package main\u000A');codeLines.push('import (\u000A    \"embed\"\u000A)\u000A');codeLines.push('//go:embed folder/single_file.txt\u000Avar fileString string\u000A');codeLines.push('//go:embed folder/single_file.txt\u000Avar fileByte []byte\u000A');codeLines.push('//go:embed folder/single_file.txt\u000A//go:embed folder/*.hash\u000Avar folder embed.FS\u000A');codeLines.push('func main() {\u000A');codeLines.push('    print(fileString)\u000A    print(string(fileByte))\u000A');codeLines.push('    content1, _ :\u003D folder.ReadFile(\"folder/file1.hash\")\u000A    print(string(content1))\u000A');codeLines.push('    content2, _ :\u003D folder.ReadFile(\"folder/file2.hash\")\u000A    print(string(content2))\u000A}\u000A');codeLines.push('');codeLines.push('');
+      codeLines.push('');codeLines.push('');codeLines.push('');codeLines.push('');codeLines.push('');codeLines.push('');codeLines.push('');codeLines.push('');codeLines.push('');codeLines.push('');codeLines.push('');
     </script>
     <script src="site.js" async></script>
   </body>
