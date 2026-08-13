@@ -1,6 +1,8 @@
-$ go run variables.go
+$ node variables.js
 initial
-1 2
+2 1
 true
-0
 apple
+undefined
+2
+1

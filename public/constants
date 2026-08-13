@@ -30,8 +30,8 @@
         
         <tr>
           <td class="docs">
-            <p>Go supports <em>constants</em> of character, string, boolean,
-and numeric values.</p>
+            <p>Javascript supports <em>constants</em> of primative values.
+They cannot be reassigned.</p>
 
           </td>
           <td class="code empty leading">
@@ -42,98 +42,25 @@ and numeric values.</p>
         
         <tr>
           <td class="docs">
-            
-          </td>
-          <td class="code leading">
-            <a href="https://go.dev/play/p/LfvIxHlpomp"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
-          <pre class="chroma"><code><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span></span></span></code></pre>
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            
-          </td>
-          <td class="code leading">
-            
-          <pre class="chroma"><code><span class="line"><span class="cl"><span class="kn">import</span> <span class="p">(</span>
-</span></span><span class="line"><span class="cl">    <span class="s">&#34;fmt&#34;</span>
-</span></span><span class="line"><span class="cl">    <span class="s">&#34;math&#34;</span>
-</span></span><span class="line"><span class="cl"><span class="p">)</span></span></span></code></pre>
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
             <p><code>const</code> declares a constant value.</p>
 
           </td>
           <td class="code leading">
             
-          <pre class="chroma"><code><span class="line"><span class="cl"><span class="kd">const</span> <span class="nx">s</span> <span class="kt">string</span> <span class="p">=</span> <span class="s">&#34;constant&#34;</span></span></span></code></pre>
+          <pre class="chroma"><code><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">s</span> <span class="o">=</span> <span class="s2">&#34;constant&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">n</span> <span class="o">=</span> <span class="mi">5000000000</span><span class="p">;</span></span></span></code></pre>
           </td>
         </tr>
         
         <tr>
           <td class="docs">
-            
-          </td>
-          <td class="code leading">
-            
-          <pre class="chroma"><code><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">s</span><span class="p">)</span></span></span></code></pre>
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            <p>A <code>const</code> statement can also appear inside a
-function body.</p>
-
-          </td>
-          <td class="code leading">
-            
-          <pre class="chroma"><code><span class="line"><span class="cl">    <span class="kd">const</span> <span class="nx">n</span> <span class="p">=</span> <span class="mi">500000000</span></span></span></code></pre>
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            <p>Constant expressions perform arithmetic with
-arbitrary precision.</p>
-
-          </td>
-          <td class="code leading">
-            
-          <pre class="chroma"><code><span class="line"><span class="cl">    <span class="kd">const</span> <span class="nx">d</span> <span class="p">=</span> <span class="mf">3e20</span> <span class="o">/</span> <span class="nx">n</span>
-</span></span><span class="line"><span class="cl">    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">d</span><span class="p">)</span></span></span></code></pre>
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            <p>A numeric constant has no type until it&rsquo;s given
-one, such as by an explicit conversion.</p>
-
-          </td>
-          <td class="code leading">
-            
-          <pre class="chroma"><code><span class="line"><span class="cl">    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nb">int64</span><span class="p">(</span><span class="nx">d</span><span class="p">))</span></span></span></code></pre>
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            <p>A number can be given a type by using it in a
-context that requires one, such as a variable
-assignment or function call. For example, here
-<code>math.Sin</code> expects a <code>float64</code>.</p>
+            <p>constants cannot be reassigned.</p>
 
           </td>
           <td class="code">
             
-          <pre class="chroma"><code><span class="line"><span class="cl">    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">math</span><span class="p">.</span><span class="nf">Sin</span><span class="p">(</span><span class="nx">n</span><span class="p">))</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre>
+          <pre class="chroma"><code><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">a</span> <span class="o">=</span> <span class="s2">&#34;foo&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">a</span> <span class="o">=</span> <span class="s2">&#34;bar&#34;</span><span class="p">;</span></span></span></code></pre>
           </td>
         </tr>
         
@@ -145,13 +72,21 @@ assignment or function call. For example, here
           <td class="docs">
             
           </td>
+          <td class="code leading">
+            
+          <pre class="chroma"><code><span class="line"><span class="cl"><span class="gp">$</span> node constant.js 
+</span></span><span class="line"><span class="cl"><span class="go">a = &#34;bar&#34;;
+</span></span></span><span class="line"><span class="cl"><span class="go">  ^</span></span></span></code></pre>
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            
+          </td>
           <td class="code">
             
-          <pre class="chroma"><code><span class="line"><span class="cl"><span class="gp">$</span> go run constant.go 
-</span></span><span class="line"><span class="cl"><span class="go">constant
-</span></span></span><span class="line"><span class="cl"><span class="go">6e+11
-</span></span></span><span class="line"><span class="cl"><span class="go">600000000000
-</span></span></span><span class="line"><span class="cl"><span class="go">-0.28470407323754404</span></span></span></code></pre>
+          <pre class="chroma"><code><span class="line"><span class="cl"><span class="go">TypeError: Assignment to constant variable.</span></span></span></code></pre>
           </td>
         </tr>
         
@@ -170,7 +105,7 @@ assignment or function call. For example, here
     </div>
     <script>
       var codeLines = [];
-      codeLines.push('');codeLines.push('');codeLines.push('');codeLines.push('');codeLines.push('');codeLines.push('');codeLines.push('');codeLines.push('');codeLines.push('');codeLines.push('');
+      codeLines.push('');codeLines.push('const s \u003D \"constant\";\u000Aconst n \u003D 5000000000;\u000A');codeLines.push('const a \u003D \"foo\";\u000Aa \u003D \"bar\";\u000A');codeLines.push('');codeLines.push('');
     </script>
     <script src="site.js" async></script>
   </body>

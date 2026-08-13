@@ -1,18 +1,18 @@
-$ go run for.go
+$ node for.js
 1
 2
 3
-0
 1
 2
-range 0
-range 1
-range 2
-loop
-1
-3
-5
-
-# We'll see some other `for` forms later when we look at
-# `range` statements, channels, and other data
-# structures.
+while 0
+while 1
+while 2
+while 3
+do-while 0
+do-while 1
+a: 1
+b: 2
+c: 3
+a
+b
+c

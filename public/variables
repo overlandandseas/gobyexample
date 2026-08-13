@@ -30,9 +30,8 @@
         
         <tr>
           <td class="docs">
-            <p>In Go, <em>variables</em> are explicitly declared and used by
-the compiler to e.g. check type-correctness of function
-calls.</p>
+            <p>In javascript, <em>variables</em> are explicitly declared and used to
+store the information you need</p>
 
           </td>
           <td class="code empty leading">
@@ -43,43 +42,13 @@ calls.</p>
         
         <tr>
           <td class="docs">
-            
-          </td>
-          <td class="code leading">
-            <a href="https://go.dev/play/p/N5rWndIliJW"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
-          <pre class="chroma"><code><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span></span></span></code></pre>
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            
-          </td>
-          <td class="code leading">
-            
-          <pre class="chroma"><code><span class="line"><span class="cl"><span class="kn">import</span> <span class="s">&#34;fmt&#34;</span></span></span></code></pre>
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            
-          </td>
-          <td class="code leading">
-            
-          <pre class="chroma"><code><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span></span></span></code></pre>
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
             <p><code>var</code> declares 1 or more variables.</p>
 
           </td>
           <td class="code leading">
             
-          <pre class="chroma"><code><span class="line"><span class="cl">    <span class="kd">var</span> <span class="nx">a</span> <span class="p">=</span> <span class="s">&#34;initial&#34;</span>
-</span></span><span class="line"><span class="cl">    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">a</span><span class="p">)</span></span></span></code></pre>
+          <pre class="chroma"><code><span class="line"><span class="cl">    <span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="s2">&#34;initial&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">a</span><span class="p">)</span></span></span></code></pre>
           </td>
         </tr>
         
@@ -90,50 +59,51 @@ calls.</p>
           </td>
           <td class="code leading">
             
-          <pre class="chroma"><code><span class="line"><span class="cl">    <span class="kd">var</span> <span class="nx">b</span><span class="p">,</span> <span class="nx">c</span> <span class="kt">int</span> <span class="p">=</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span>
-</span></span><span class="line"><span class="cl">    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">b</span><span class="p">,</span> <span class="nx">c</span><span class="p">)</span></span></span></code></pre>
+          <pre class="chroma"><code><span class="line"><span class="cl">    <span class="kd">var</span> <span class="nx">b</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="nx">c</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">b</span><span class="p">,</span> <span class="nx">c</span><span class="p">)</span></span></span></code></pre>
           </td>
         </tr>
         
         <tr>
           <td class="docs">
-            <p>Go will infer the type of initialized variables.</p>
+            <p>Javascript has no type and variables can be reassigned to different types.</p>
 
           </td>
           <td class="code leading">
             
-          <pre class="chroma"><code><span class="line"><span class="cl">    <span class="kd">var</span> <span class="nx">d</span> <span class="p">=</span> <span class="kc">true</span>
-</span></span><span class="line"><span class="cl">    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">d</span><span class="p">)</span></span></span></code></pre>
+          <pre class="chroma"><code><span class="line"><span class="cl">    <span class="kd">var</span> <span class="nx">d</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">d</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">d</span> <span class="o">=</span> <span class="s2">&#34;apple&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">d</span><span class="p">);</span></span></span></code></pre>
           </td>
         </tr>
         
         <tr>
           <td class="docs">
             <p>Variables declared without a corresponding
-initialization are <em>zero-valued</em>. For example, the
-zero value for an <code>int</code> is <code>0</code>.</p>
+initialization are <code>undefined</code>.</p>
 
           </td>
           <td class="code leading">
             
-          <pre class="chroma"><code><span class="line"><span class="cl">    <span class="kd">var</span> <span class="nx">e</span> <span class="kt">int</span>
-</span></span><span class="line"><span class="cl">    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span></span></span></code></pre>
+          <pre class="chroma"><code><span class="line"><span class="cl">    <span class="kd">var</span> <span class="nx">e</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">e</span><span class="p">);</span></span></span></code></pre>
           </td>
         </tr>
         
         <tr>
           <td class="docs">
-            <p>The <code>:=</code> syntax is shorthand for declaring and
-initializing a variable, e.g. for
-<code>var f string = &quot;apple&quot;</code> in this case.
-This syntax is only available inside functions.</p>
+            <p><code>let</code> is similar to var but block scoped instead of function scoped.</p>
 
           </td>
           <td class="code">
             
-          <pre class="chroma"><code><span class="line"><span class="cl">    <span class="nx">f</span> <span class="o">:=</span> <span class="s">&#34;apple&#34;</span>
-</span></span><span class="line"><span class="cl">    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">f</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre>
+          <pre class="chroma"><code><span class="line"><span class="cl">    <span class="kd">let</span> <span class="nx">foo</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kd">let</span> <span class="nx">foo</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">foo</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">foo</span><span class="p">);</span></span></span></code></pre>
           </td>
         </tr>
         
@@ -147,12 +117,14 @@ This syntax is only available inside functions.</p>
           </td>
           <td class="code">
             
-          <pre class="chroma"><code><span class="line"><span class="cl"><span class="gp">$</span> go run variables.go
+          <pre class="chroma"><code><span class="line"><span class="cl"><span class="gp">$</span> node variables.js
 </span></span><span class="line"><span class="cl"><span class="go">initial
-</span></span></span><span class="line"><span class="cl"><span class="go">1 2
+</span></span></span><span class="line"><span class="cl"><span class="go">2 1
 </span></span></span><span class="line"><span class="cl"><span class="go">true
-</span></span></span><span class="line"><span class="cl"><span class="go">0
-</span></span></span><span class="line"><span class="cl"><span class="go">apple</span></span></span></code></pre>
+</span></span></span><span class="line"><span class="cl"><span class="go">apple
+</span></span></span><span class="line"><span class="cl"><span class="go">undefined
+</span></span></span><span class="line"><span class="cl"><span class="go">2
+</span></span></span><span class="line"><span class="cl"><span class="go">1</span></span></span></code></pre>
           </td>
         </tr>
         
@@ -171,7 +143,7 @@ This syntax is only available inside functions.</p>
     </div>
     <script>
       var codeLines = [];
-      codeLines.push('');codeLines.push('');codeLines.push('');codeLines.push('');codeLines.push('');codeLines.push('');codeLines.push('');codeLines.push('');codeLines.push('');codeLines.push('');
+      codeLines.push('');codeLines.push('    var a \u003D \"initial\"\u000A    console.log(a)\u000A');codeLines.push('    var b \u003D 2, c \u003D 1;\u000A    console.log(b, c)\u000A');codeLines.push('    var d \u003D true;\u000A    console.log(d);\u000A    d \u003D \"apple\";\u000A    console.log(d);\u000A');codeLines.push('    var e;\u000A    console.log(e);\u000A');codeLines.push('    let foo \u003D 1;\u000A    {\u000A        let foo \u003D 2;\u000A        console.log(foo);\u000A    }\u000A    console.log(foo);\u000A');codeLines.push('');
     </script>
     <script src="site.js" async></script>
   </body>
