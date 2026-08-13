@@ -49,6 +49,26 @@ body {
   font-size: 16px;
   line-height: 20px;
 }
+
+/* Glowing green backdrop (inspired by nodejs.org GlowingBackdrop) */
+body::before {
+  content: '';
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background: #86efac;
+  filter: blur(120px);
+  opacity: 0.5;
+  z-index: -1;
+  pointer-events: none;
+}
+@media (min-width: 768px) {
+  body::before {
+    opacity: 1;
+  }
+}
+
 em {
   font-style: italic;
 }
@@ -157,7 +177,7 @@ p.footer a, p.footer a:visited {
   color: #808080;
 }
 td.code {
-  background: #f0f0f0;
+  background: rgba(240, 240, 240, 0.7);
 }
 
 /* Syntax highlighting: light mode */
@@ -189,6 +209,9 @@ body .c1 { color: #808080 }  /* Comment.Single */
     background-color: #1f1f1f;
     color: #dadada;
   }
+  body::before {
+    background: #15803d;
+  }
   td.code.empty {
     background: #1f1f1f;
   }
@@ -202,7 +225,7 @@ body .c1 { color: #808080 }  /* Comment.Single */
     color: #898e98;
   }
   td.code {
-    background: #282828;
+    background: rgba(40, 40, 40, 0.7);
   }
 
  
