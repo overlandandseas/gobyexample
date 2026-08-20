@@ -324,7 +324,7 @@ func renderExamples(examples []*Example) {
 	template.Must(exampleTmpl.Parse(mustReadFile("templates/footer.tmpl")))
 	template.Must(exampleTmpl.Parse(mustReadFile("templates/example.tmpl")))
 	for _, example := range examples {
-		exampleF, err := os.Create(siteDir + "/" + example.ID)
+		exampleF, err := os.Create(siteDir + "/" + example.ID + ".html")
 		checkErr(err)
 		defer exampleF.Close()
 		checkErr(exampleTmpl.Execute(exampleF, example))

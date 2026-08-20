@@ -4,7 +4,3 @@
 
 [build.environment]
   GO_VERSION = "1.25.1"
-[[headers]]
-  for = "/*"
-  [headers.values]
-    Content-Type = "text/html; charset=utf-8"
