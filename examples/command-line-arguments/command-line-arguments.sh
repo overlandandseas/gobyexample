@@ -1,10 +1,22 @@
-# To experiment with command-line arguments it's best to
-# build a binary with `go build` first.
-$ go build command-line-arguments.go
-$ ./command-line-arguments a b c d
-[./command-line-arguments a b c d]       
-[a b c d]
-c
+$ node command-line-arguments.js a b c d
+[
+  '.nvm/versions/node/v22.16.0/bin/node',
+  'command-line-arguments.js',
+  'a',
+  'b',
+  'c',
+  'd'
+]
+[
+  'command-line-arguments.js',
+  'a',
+  'b',
+  'c',
+  'd'
+]
+b
 
-# Next we'll look at more advanced command-line processing
-# with flags.
+
+# Node.js does not have more advanced
+# command-line processing,
+# such as flags.

@@ -30,8 +30,7 @@
         
         <tr>
           <td class="docs">
-            <p>Branching with <code>if</code> and <code>else</code> in Javascript is
-straight-forward.</p>
+            <p><code>if</code> / <code>else</code> blocks in JavaScript are essential for branching on conditionals.</p>
 
           </td>
           <td class="code empty leading">
@@ -84,7 +83,7 @@ useful in conditions.</p>
         
         <tr>
           <td class="docs">
-            <p>The parenthesis are always required, but the
+            <p>The parenthesis is always required, but the
 curly braces are optional for one line statements.</p>
 
           </td>
@@ -99,13 +98,29 @@ curly braces are optional for one line statements.</p>
         
         <tr>
           <td class="docs">
-            <p>Javascript also supports ternary operations</p>
+            <p>JavaScript also supports ternary operations</p>
+
+          </td>
+          <td class="code leading">
+            
+          <pre class="chroma"><code><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">a</span> <span class="o">=</span> <span class="mi">9</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">===</span> <span class="mi">0</span> <span class="o">?</span> <span class="s2">&#34;even&#34;</span> <span class="o">:</span> <span class="s2">&#34;odd&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">a</span><span class="p">);</span></span></span></code></pre>
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>The expression within the <code>if</code> statement does not have to be a <code>boolean</code>. Any <code>truthy</code> value will do</p>
 
           </td>
           <td class="code">
             
-          <pre class="chroma"><code><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">a</span> <span class="o">=</span> <span class="mi">9</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">===</span> <span class="mi">0</span> <span class="o">?</span> <span class="s2">&#34;even&#34;</span> <span class="o">:</span> <span class="s2">&#34;odd&#34;</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">a</span><span class="p">);</span></span></span></code></pre>
+          <pre class="chroma"><code><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">b</span> <span class="o">=</span> <span class="s2">&#34;String&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="p">(</span><span class="nx">b</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">b</span><span class="p">,</span> <span class="s2">&#34;is truthy&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">b</span><span class="p">,</span> <span class="s2">&#34;is falsey&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre>
           </td>
         </tr>
         
@@ -124,7 +139,8 @@ curly braces are optional for one line statements.</p>
 </span></span></span><span class="line"><span class="cl"><span class="go">8 is divisible by 4
 </span></span></span><span class="line"><span class="cl"><span class="go">either 8 or 7 are even
 </span></span></span><span class="line"><span class="cl"><span class="go">5 is not less than three
-</span></span></span><span class="line"><span class="cl"><span class="go">odd</span></span></span></code></pre>
+</span></span></span><span class="line"><span class="cl"><span class="go">odd
+</span></span></span><span class="line"><span class="cl"><span class="go">String is truthy</span></span></span></code></pre>
           </td>
         </tr>
         
@@ -137,13 +153,13 @@ curly braces are optional for one line statements.</p>
       
 
     <p class="footer">
-      by <a href="https://markmcgranaghan.com">Mark McGranaghan</a> and <a href="https://eli.thegreenplace.net">Eli Bendersky</a> | <a href="https://github.com/mmcgrana/gobyexample">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
+      <a href="https://github.com/mmcgrana/gobyexample">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
     </p>
 
     </div>
     <script>
       var codeLines = [];
-      codeLines.push('');codeLines.push('if (7 % 2 \u003D\u003D\u003D 0) {\u000A    console.log(\"7 is even\");\u000A} else {\u000A    console.log(\"7 is odd\");\u000A}\u000A');codeLines.push('if (8 % 4 \u003D\u003D\u003D 0) {\u000A    console.log(\"8 is divisible by 4\");\u000A}\u000A');codeLines.push('if (8 % 2 \u003D\u003D\u003D 0 || 7 % 2 \u003D\u003D\u003D 0) {\u000A    console.log(\"either 8 or 7 are even\");\u000A}\u000A');codeLines.push('if (5 \u003C 3)\u000A    console.log(\"5 is less than 3\");\u000Aelse\u000A    console.log(\"5 is not less than three\");\u000A');codeLines.push('let a \u003D 9 % 2 \u003D\u003D\u003D 0 ? \"even\" : \"odd\";\u000Aconsole.log(a);\u000A');codeLines.push('');
+      codeLines.push('');codeLines.push('if (7 % 2 \u003D\u003D\u003D 0) {\u000A    console.log(\"7 is even\");\u000A} else {\u000A    console.log(\"7 is odd\");\u000A}\u000A');codeLines.push('if (8 % 4 \u003D\u003D\u003D 0) {\u000A    console.log(\"8 is divisible by 4\");\u000A}\u000A');codeLines.push('if (8 % 2 \u003D\u003D\u003D 0 || 7 % 2 \u003D\u003D\u003D 0) {\u000A    console.log(\"either 8 or 7 are even\");\u000A}\u000A');codeLines.push('if (5 \u003C 3)\u000A    console.log(\"5 is less than 3\");\u000Aelse\u000A    console.log(\"5 is not less than three\");\u000A');codeLines.push('let a \u003D 9 % 2 \u003D\u003D\u003D 0 ? \"even\" : \"odd\";\u000Aconsole.log(a);\u000A');codeLines.push('let b \u003D \"String\";\u000Aif (b) {\u000A    console.log(b, \"is truthy\");\u000A} else {\u000A    console.log(b, \"is falsey\");\u000A}\u000A');codeLines.push('');
     </script>
     <script src="site.js" async></script>
   </body>

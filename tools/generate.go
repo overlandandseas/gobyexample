@@ -87,7 +87,9 @@ func whichLexer(path string) string {
 		return "console"
 	} else if strings.HasSuffix(path, ".js") {
 		return "javascript"
-	} else if strings.HasSuffix(path, "ts") {
+	} else if strings.HasSuffix(path, ".mjs") {
+		return "javascript"
+	} else if strings.HasSuffix(path, ".ts") {
 		return "typescript"
 	}
 	panic("No lexer for " + path)
@@ -353,6 +355,7 @@ func main() {
 	copyFile("templates/favicon.ico", siteDir+"/favicon.ico")
 	copyFile("templates/play.png", siteDir+"/play.png")
 	copyFile("templates/clipboard.png", siteDir+"/clipboard.png")
+	copyFile("templates/hexagon-grid.svg", siteDir+"/hexagon-grid.svg")
 	examples := parseExamples()
 	renderIndex(examples)
 	renderExamples(examples)

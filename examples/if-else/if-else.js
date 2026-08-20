@@ -1,6 +1,4 @@
-// Branching with `if` and `else` in Javascript is
-// straight-forward.
-
+// `if` / `else` blocks in JavaScript are essential for branching on conditionals.
 
 // Here's a basic example.
 if (7 % 2 === 0) {
@@ -20,13 +18,21 @@ if (8 % 2 === 0 || 7 % 2 === 0) {
 	console.log("either 8 or 7 are even");
 }
 
-// The parenthesis are always required, but the
+// The parenthesis is always required, but the
 // curly braces are optional for one line statements.
 if (5 < 3)
 	console.log("5 is less than 3");
 else
 	console.log("5 is not less than three");
 
-// Javascript also supports ternary operations
+// JavaScript also supports ternary operations
 let a = 9 % 2 === 0 ? "even" : "odd";
 console.log(a);
+
+// The expression within the `if` statement does not have to be a `boolean`. Any `truthy` value will do
+let b = "String";
+if (b) {
+	console.log(b, "is truthy");
+} else {
+	console.log(b, "is falsey");
+}

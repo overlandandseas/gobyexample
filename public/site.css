@@ -54,8 +54,11 @@ body {
 body::before {
   content: '';
   position: absolute;
+  top: 0;
+  left: 0;
   width: 300px;
   height: 300px;
+  transform: translate(-50%, -50%);
   border-radius: 50%;
   background: #86efac;
   filter: blur(120px);
@@ -67,6 +70,22 @@ body::before {
   body::before {
     opacity: 1;
   }
+}
+
+/* Hexagon grid backdrop (nodejs.org HexagonGrid) */
+body::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translate(-50%, -50%);
+  width: 1216px;
+  max-width: 100%;
+  aspect-ratio: 1.67;
+  background: url(hexagon-grid.svg) no-repeat center / contain;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0.25;
 }
 
 em {
@@ -165,6 +184,7 @@ body {
   color: #252519;
 }
 td.code.empty {
+  opacity: 0;
   background: #ffffff;
 }
 a, a:visited {
@@ -189,6 +209,7 @@ body .k  { color: #954121 }  /* Keyword: if, for, range, return, defer, etc.  */
 body .kc { color: #954121 }  /* Keyword.Constant: nil, true, false */
 body .kd { color: #954121 }  /* Keyword.Declaration: func, var, type, struct, map, chan, etc. */
 body .kn { color: #954121 }  /* Keyword.Namespace: package, import */
+body .kr { color: #954121 }  /* Keyword.Reserved: const, class, new, this, super, import, export, from */
 body .nb { color: #954121 }  /* Name.Builtin: make, len, delete, append, etc. */
 body .kt { color: #b00040 }  /* Keyword.Type: string, int, byte, error, etc. */
 body .m  { color: #666666 }  /* Literal.Number */
@@ -197,6 +218,10 @@ body .mh { color: #666666 }  /* Literal.Number.Hex */
 body .mi { color: #666666 }  /* Literal.Number.Integer */
 body .mo { color: #666666 }  /* Literal.Number.Oct */
 body .s  { color: #219161 }  /* Literal.String */
+body .s1 { color: #219161 }  /* Literal.String.Single: 'foo' */
+body .s2 { color: #219161 }  /* Literal.String.Double: "foo" */
+body .sb { color: #219161 }  /* Literal.String.Backtick: `foo` */
+body .si { color: #219161 }  /* Literal.String.Interpol: ${expr} */
 body .sc { color: #219161 }  /* Literal.String.Char */
 body .gp { color: #000080 }  /* Generic.Prompt: shell prompt */
 body .go { color: #808080 }  /* Generic.Output: shell output */
@@ -212,7 +237,11 @@ body .c1 { color: #808080 }  /* Comment.Single */
   body::before {
     background: #15803d;
   }
+  body::after {
+    opacity: 0.25;
+  }
   td.code.empty {
+    opacity: 0;
     background: #1f1f1f;
   }
   a, a:visited {
@@ -238,6 +267,7 @@ body .c1 { color: #808080 }  /* Comment.Single */
   body .kc { color: #af5a54 }  /* Keyword.Constant */
   body .kd { color: #af5a54 }  /* Keyword.Declaration */
   body .kn { color: #af5a54 }  /* Keyword.Namespace */
+  body .kr { color: #af5a54 }  /* Keyword.Reserved: const, class, new, this, super, import, export, from */
   body .nb { color: #af5a54 }  /* Name.Builtin */
   body .kt { color: #b64343 }  /* Keyword.Type */
   body .m  { color: #688ec8 }  /* Literal.Number */
@@ -245,7 +275,8 @@ body .c1 { color: #808080 }  /* Comment.Single */
   body .mh { color: #688ec8 }  /* Literal.Number.Hex */
   body .mi { color: #688ec8 }  /* Literal.Number.Integer */
   body .mo { color: #688ec8 }  /* Literal.Number.Oct */
-  body .s, body .s2  { color: #718e72 }  /* Literal.String */
+  body .s, body .s1, body .s2, body .sb { color: #718e72 }  /* Literal.String (all quote flavors) */
+  body .si { color: #718e72 }  /* Literal.String.Interpol: ${expr} */
   body .sc { color: #718e72 }  /* Literal.String.Char */
   body .gp { color: #8a6ab1 }  /* Generic.Prompt */
   body .go { color: #868686 }  /* Generic.Output */

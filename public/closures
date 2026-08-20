@@ -12,12 +12,12 @@
           }
           
           if (e.key == "ArrowLeft") {
-              window.location.href = 'variadic-functions';
+              window.location.href = 'functions';
           }
           
           
           if (e.key == "ArrowRight") {
-              window.location.href = 'recursion';
+              window.location.href = 'regular-expressions';
           }
           
       }
@@ -30,10 +30,12 @@
         
         <tr>
           <td class="docs">
-            <p>Go supports <a href="https://en.wikipedia.org/wiki/Anonymous_function"><em>anonymous functions</em></a>,
-which can form <a href="https://en.wikipedia.org/wiki/Closure_(computer_science)"><em>closures</em></a>.
-Anonymous functions are useful when you want to define
-a function inline without having to name it.</p>
+            <p>A <em>closure</em> is the combination of a function bundled
+together (enclosed) with references to its surrounding
+state (the <em>lexical environment</em>). In other words, a closure
+gives a function access to its outer scope. In JavaScript,
+closures are created every time a function is created, at
+function creation time.</p>
 
           </td>
           <td class="code empty leading">
@@ -44,40 +46,20 @@ a function inline without having to name it.</p>
         
         <tr>
           <td class="docs">
-            
-          </td>
-          <td class="code leading">
-            <a href="https://go.dev/play/p/NpgpzS8ZG8y"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
-          <pre class="chroma"><code><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span></span></span></code></pre>
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            
-          </td>
-          <td class="code leading">
-            
-          <pre class="chroma"><code><span class="line"><span class="cl"><span class="kn">import</span> <span class="s">&#34;fmt&#34;</span></span></span></code></pre>
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            <p>This function <code>intSeq</code> returns another function, which
-we define anonymously in the body of <code>intSeq</code>. The
-returned function <em>closes over</em> the variable <code>i</code> to
-form a closure.</p>
+            <p><code>myFunc</code> is a reference to the instance of the
+function <code>displayName</code> that is created when <code>makeFunc</code> is run.
+The instance of <code>displayName</code> maintains a reference to its
+<em>lexical environment</em>, within which the variable name exists.</p>
 
           </td>
           <td class="code leading">
             
-          <pre class="chroma"><code><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">intSeq</span><span class="p">()</span> <span class="kd">func</span><span class="p">()</span> <span class="kt">int</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="nx">i</span> <span class="o">:=</span> <span class="mi">0</span>
-</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="kd">func</span><span class="p">()</span> <span class="kt">int</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="nx">i</span><span class="o">++</span>
-</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="nx">i</span>
+          <pre class="chroma"><code><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">makeFunc</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kr">const</span> <span class="nx">name</span> <span class="o">=</span> <span class="s2">&#34;jsbyexample&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">function</span> <span class="nx">displayName</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">name</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="nx">displayName</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre>
           </td>
         </tr>
@@ -88,49 +70,48 @@ form a closure.</p>
           </td>
           <td class="code leading">
             
-          <pre class="chroma"><code><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span></span></span></code></pre>
+          <pre class="chroma"><code><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">myFunc</span> <span class="o">=</span> <span class="nx">makeFunc</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl"><span class="nx">myFunc</span><span class="p">();</span></span></span></code></pre>
           </td>
         </tr>
         
         <tr>
           <td class="docs">
-            <p>We call <code>intSeq</code>, assigning the result (a function)
-to <code>nextInt</code>. This function value captures its
-own <code>i</code> value, which will be updated each time
-we call <code>nextInt</code>.</p>
+            <p>We have defined a function <code>makeAdder(x)</code><code>,
+that takes a single argument</code>x<code>, and returns a new function.
+The function it returns takes a single argument</code>y<code>,
+and returns the sum of</code>x<code>and</code>y`.</p>
 
           </td>
           <td class="code leading">
             
-          <pre class="chroma"><code><span class="line"><span class="cl">    <span class="nx">nextInt</span> <span class="o">:=</span> <span class="nf">intSeq</span><span class="p">()</span></span></span></code></pre>
+          <pre class="chroma"><code><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">makeAdder</span><span class="p">(</span><span class="nx">x</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="kd">function</span><span class="p">(</span><span class="nx">y</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="nx">x</span> <span class="o">+</span> <span class="nx">y</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">};</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre>
           </td>
         </tr>
         
         <tr>
           <td class="docs">
-            <p>See the effect of the closure by calling <code>nextInt</code>
-a few times.</p>
-
+            
           </td>
           <td class="code leading">
             
-          <pre class="chroma"><code><span class="line"><span class="cl">    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nf">nextInt</span><span class="p">())</span>
-</span></span><span class="line"><span class="cl">    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nf">nextInt</span><span class="p">())</span>
-</span></span><span class="line"><span class="cl">    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nf">nextInt</span><span class="p">())</span></span></span></code></pre>
+          <pre class="chroma"><code><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">add5</span> <span class="o">=</span> <span class="nx">makeAdder</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">add10</span> <span class="o">=</span> <span class="nx">makeAdder</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span></span></span></code></pre>
           </td>
         </tr>
         
         <tr>
           <td class="docs">
-            <p>To confirm that the state is unique to that
-particular function, create and test a new one.</p>
-
+            
           </td>
           <td class="code">
             
-          <pre class="chroma"><code><span class="line"><span class="cl">    <span class="nx">newInts</span> <span class="o">:=</span> <span class="nf">intSeq</span><span class="p">()</span>
-</span></span><span class="line"><span class="cl">    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nf">newInts</span><span class="p">())</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre>
+          <pre class="chroma"><code><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">add5</span><span class="p">(</span><span class="mi">2</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">add10</span><span class="p">(</span><span class="mi">2</span><span class="p">));</span></span></span></code></pre>
           </td>
         </tr>
         
@@ -142,25 +123,12 @@ particular function, create and test a new one.</p>
           <td class="docs">
             
           </td>
-          <td class="code leading">
+          <td class="code">
             
-          <pre class="chroma"><code><span class="line"><span class="cl"><span class="gp">$</span> go run closures.go
-</span></span><span class="line"><span class="cl"><span class="go">1
-</span></span></span><span class="line"><span class="cl"><span class="go">2
-</span></span></span><span class="line"><span class="cl"><span class="go">3
-</span></span></span><span class="line"><span class="cl"><span class="go">1</span></span></span></code></pre>
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            <p>The last feature of functions we&rsquo;ll look at for now is
-recursion.</p>
-
-          </td>
-          <td class="code empty">
-            
-          
+          <pre class="chroma"><code><span class="line"><span class="cl"><span class="gp">$</span> node closures.js
+</span></span><span class="line"><span class="cl"><span class="go">jsbyexample
+</span></span></span><span class="line"><span class="cl"><span class="go">7
+</span></span></span><span class="line"><span class="cl"><span class="go">12</span></span></span></code></pre>
           </td>
         </tr>
         
@@ -168,18 +136,18 @@ recursion.</p>
       
       
       <p class="next">
-        Next example: <a href="recursion" rel="next">Recursion</a>.
+        Next example: <a href="regular-expressions" rel="next">Regular Expressions</a>.
       </p>
       
 
     <p class="footer">
-      by <a href="https://markmcgranaghan.com">Mark McGranaghan</a> and <a href="https://eli.thegreenplace.net">Eli Bendersky</a> | <a href="https://github.com/mmcgrana/gobyexample">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
+      <a href="https://github.com/mmcgrana/gobyexample">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
     </p>
 
     </div>
     <script>
       var codeLines = [];
-      codeLines.push('');codeLines.push('');codeLines.push('');codeLines.push('');codeLines.push('');codeLines.push('');codeLines.push('');codeLines.push('');codeLines.push('');codeLines.push('');
+      codeLines.push('');codeLines.push('function makeFunc() {\u000A    const name \u003D \"jsbyexample\";\u000A    function displayName() {\u000A        console.log(name);\u000A    }\u000A    return displayName;\u000A}\u000A');codeLines.push('const myFunc \u003D makeFunc();\u000AmyFunc();\u000A');codeLines.push('function makeAdder(x) {\u000A    return function(y) {\u000A        return x + y;\u000A    };\u000A}\u000A');codeLines.push('const add5 \u003D makeAdder(5);\u000Aconst add10 \u003D makeAdder(10);\u000A');codeLines.push('console.log(add5(2));\u000Aconsole.log(add10(2));\u000A');codeLines.push('');
     </script>
     <script src="site.js" async></script>
   </body>

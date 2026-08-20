@@ -1,5 +1,3 @@
 $ node constant.js 
-a = "bar";
-  ^
-
-TypeError: Assignment to constant variable.
+constant 5000000000
+{ foo: 2 }

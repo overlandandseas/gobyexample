@@ -30,58 +30,28 @@
         
         <tr>
           <td class="docs">
-            <p>The Go standard library comes with excellent support
-for HTTP clients and servers in the <code>net/http</code>
-package. In this example we&rsquo;ll use it to issue simple
-HTTP requests.</p>
+            <p>Node.js has support for fetching requests similar
+to the browser functionality using <code>fetch()</code></p>
 
           </td>
-          <td class="code leading">
-            <a href="https://go.dev/play/p/vFW_el7oHMk"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
-          <pre class="chroma"><code><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span></span></span></code></pre>
+          <td class="code empty leading">
+            
+          
           </td>
         </tr>
         
         <tr>
           <td class="docs">
-            
-          </td>
-          <td class="code leading">
-            
-          <pre class="chroma"><code><span class="line"><span class="cl"><span class="kn">import</span> <span class="p">(</span>
-</span></span><span class="line"><span class="cl">    <span class="s">&#34;bufio&#34;</span>
-</span></span><span class="line"><span class="cl">    <span class="s">&#34;fmt&#34;</span>
-</span></span><span class="line"><span class="cl">    <span class="s">&#34;net/http&#34;</span>
-</span></span><span class="line"><span class="cl"><span class="p">)</span></span></span></code></pre>
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            
-          </td>
-          <td class="code leading">
-            
-          <pre class="chroma"><code><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span></span></span></code></pre>
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            <p>Issue an HTTP GET request to a server. <code>http.Get</code> is a
-convenient shortcut around creating an <code>http.Client</code>
-object and calling its <code>Get</code> method; it uses the
-<code>http.DefaultClient</code> object which has useful default
-settings.</p>
+            <p>Issue an HTTP GET request to a server. <code>fetch()</code> is a
+convenient shortcut. The implementation is based upon <em>undici</em>,
+ an HTTP/1.1 client written from scratch for Node.js.</p>
 
           </td>
           <td class="code leading">
             
-          <pre class="chroma"><code><span class="line"><span class="cl">    <span class="nx">resp</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">http</span><span class="p">.</span><span class="nf">Get</span><span class="p">(</span><span class="s">&#34;https://gobyexample.com&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="nb">panic</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl">    <span class="k">defer</span> <span class="nx">resp</span><span class="p">.</span><span class="nx">Body</span><span class="p">.</span><span class="nf">Close</span><span class="p">()</span></span></span></code></pre>
+          <pre class="chroma"><code><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">res</span> <span class="o">=</span> <span class="kr">await</span> <span class="nx">fetch</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;https://jsonplaceholder.typicode.com/posts&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">);</span></span></span></code></pre>
           </td>
         </tr>
         
@@ -92,34 +62,19 @@ settings.</p>
           </td>
           <td class="code leading">
             
-          <pre class="chroma"><code><span class="line"><span class="cl">    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;Response status:&#34;</span><span class="p">,</span> <span class="nx">resp</span><span class="p">.</span><span class="nx">Status</span><span class="p">)</span></span></span></code></pre>
+          <pre class="chroma"><code><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&#34;Response status:&#34;</span><span class="p">,</span> <span class="nx">res</span><span class="p">.</span><span class="nx">status</span><span class="p">);</span></span></span></code></pre>
           </td>
         </tr>
         
         <tr>
           <td class="docs">
-            <p>Print the first 5 lines of the response body.</p>
+            <p>Print the output of the JSON response</p>
 
-          </td>
-          <td class="code leading">
-            
-          <pre class="chroma"><code><span class="line"><span class="cl">    <span class="nx">scanner</span> <span class="o">:=</span> <span class="nx">bufio</span><span class="p">.</span><span class="nf">NewScanner</span><span class="p">(</span><span class="nx">resp</span><span class="p">.</span><span class="nx">Body</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="nx">i</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">scanner</span><span class="p">.</span><span class="nf">Scan</span><span class="p">()</span> <span class="o">&amp;&amp;</span> <span class="nx">i</span> <span class="p">&lt;</span> <span class="mi">5</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">scanner</span><span class="p">.</span><span class="nf">Text</span><span class="p">())</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span></span></span></code></pre>
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            
           </td>
           <td class="code">
             
-          <pre class="chroma"><code><span class="line"><span class="cl">    <span class="k">if</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">scanner</span><span class="p">.</span><span class="nf">Err</span><span class="p">();</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="nb">panic</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre>
+          <pre class="chroma"><code><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">data</span> <span class="o">=</span> <span class="kr">await</span> <span class="nx">res</span><span class="p">.</span><span class="nx">json</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span></span></span></code></pre>
           </td>
         </tr>
         
@@ -133,13 +88,22 @@ settings.</p>
           </td>
           <td class="code">
             
-          <pre class="chroma"><code><span class="line"><span class="cl"><span class="gp">$</span> go run http-clients.go
-</span></span><span class="line"><span class="cl"><span class="go">Response status: 200 OK
-</span></span></span><span class="line"><span class="cl"><span class="go">&lt;!DOCTYPE html&gt;
-</span></span></span><span class="line"><span class="cl"><span class="go">&lt;html&gt;
-</span></span></span><span class="line"><span class="cl"><span class="go">  &lt;head&gt;
-</span></span></span><span class="line"><span class="cl"><span class="go">    &lt;meta charset=&#34;utf-8&#34;&gt;
-</span></span></span><span class="line"><span class="cl"><span class="go">    &lt;title&gt;Go by Example&lt;/title&gt;</span></span></span></code></pre>
+          <pre class="chroma"><code><span class="line"><span class="cl"><span class="gp">$</span> node http-client.mjs
+</span></span><span class="line"><span class="cl"><span class="go">Response status: 200
+</span></span></span><span class="line"><span class="cl"><span class="go">[
+</span></span></span><span class="line"><span class="cl"><span class="go">  {
+</span></span></span><span class="line"><span class="cl"><span class="go">    userId: 1,
+</span></span></span><span class="line"><span class="cl"><span class="go">    id: 1,
+</span></span></span><span class="line"><span class="cl"><span class="go">    title: &#39;sunt aut facere&#39;,
+</span></span></span><span class="line"><span class="cl"><span class="go">    body: &#39;quia et suscipit\n&#39; +
+</span></span></span><span class="line"><span class="cl"><span class="go">      &#39;suscipit recusandae cum\n&#39; +
+</span></span></span><span class="line"><span class="cl"><span class="go">      &#39;reprehenderit molestiae\n&#39; +
+</span></span></span><span class="line"><span class="cl"><span class="go">      &#39;nostrum rerum est&#39;
+</span></span></span><span class="line"><span class="cl"><span class="go">  },
+</span></span></span><span class="line"><span class="cl"><span class="go">  {
+</span></span></span><span class="line"><span class="cl"><span class="go">    userId: 1,
+</span></span></span><span class="line"><span class="cl"><span class="go">    id: 2,
+</span></span></span><span class="line"><span class="cl"><span class="go">...</span></span></span></code></pre>
           </td>
         </tr>
         
@@ -152,13 +116,13 @@ settings.</p>
       
 
     <p class="footer">
-      by <a href="https://markmcgranaghan.com">Mark McGranaghan</a> and <a href="https://eli.thegreenplace.net">Eli Bendersky</a> | <a href="https://github.com/mmcgrana/gobyexample">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
+      <a href="https://github.com/mmcgrana/gobyexample">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
     </p>
 
     </div>
     <script>
       var codeLines = [];
-      codeLines.push('');codeLines.push('');codeLines.push('');codeLines.push('');codeLines.push('');codeLines.push('');codeLines.push('');codeLines.push('');
+      codeLines.push('');codeLines.push('');codeLines.push('');codeLines.push('');codeLines.push('');
     </script>
     <script src="site.js" async></script>
   </body>

@@ -26,12 +26,24 @@
         
         <tr>
           <td class="docs">
-            <p>Our first program will print the classic &ldquo;hello world&rdquo;.</p>
+            <p>Node.js uses <code>console.log</code> to log to stdout.
+It can take string any many different values.</p>
+
+          </td>
+          <td class="code leading">
+            
+          <pre class="chroma"><code><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&#34;hello world&#34;</span><span class="p">);</span></span></span></code></pre>
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>We pass multiple arguments.</p>
 
           </td>
           <td class="code">
             
-          <pre class="chroma"><code><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&#34;hello world&#34;</span><span class="p">);</span></span></span></code></pre>
+          <pre class="chroma"><code><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&#34;Number of times our build failed today:&#34;</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span></span></span></code></pre>
           </td>
         </tr>
         
@@ -74,13 +86,13 @@ the filename.</p>
       
 
     <p class="footer">
-      by <a href="https://markmcgranaghan.com">Mark McGranaghan</a> and <a href="https://eli.thegreenplace.net">Eli Bendersky</a> | <a href="https://github.com/mmcgrana/gobyexample">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
+      <a href="https://github.com/mmcgrana/gobyexample">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
     </p>
 
     </div>
     <script>
       var codeLines = [];
-      codeLines.push('console.log(\"hello world\");\u000A');codeLines.push('');codeLines.push('');
+      codeLines.push('console.log(\"hello world\");\u000A');codeLines.push('console.log(\"Number of times our build failed today:\", 0);\u000A');codeLines.push('');codeLines.push('');
     </script>
     <script src="site.js" async></script>
   </body>

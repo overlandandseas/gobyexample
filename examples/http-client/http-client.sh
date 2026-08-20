@@ -1,7 +1,16 @@
-$ go run http-clients.go
-Response status: 200 OK
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>Go by Example</title>
+$ node http-client.mjs
+Response status: 200
+[
+  {
+    userId: 1,
+    id: 1,
+    title: 'sunt aut facere',
+    body: 'quia et suscipit\n' +
+      'suscipit recusandae cum\n' +
+      'reprehenderit molestiae\n' +
+      'nostrum rerum est'
+  },
+  {
+    userId: 1,
+    id: 2,
+...

@@ -30,7 +30,7 @@
         
         <tr>
           <td class="docs">
-            <p>Javascript supports <em>constants</em> of primative values.
+            <p>JavaScript supports <em>constants</em> of primitive values or references.
 They cannot be reassigned.</p>
 
           </td>
@@ -48,19 +48,21 @@ They cannot be reassigned.</p>
           <td class="code leading">
             
           <pre class="chroma"><code><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">s</span> <span class="o">=</span> <span class="s2">&#34;constant&#34;</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">n</span> <span class="o">=</span> <span class="mi">5000000000</span><span class="p">;</span></span></span></code></pre>
+</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">n</span> <span class="o">=</span> <span class="mi">5000000000</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">s</span><span class="p">,</span> <span class="nx">n</span><span class="p">);</span></span></span></code></pre>
           </td>
         </tr>
         
         <tr>
           <td class="docs">
-            <p>constants cannot be reassigned.</p>
+            <p>An object&rsquo;s values within a constant can still be modified.</p>
 
           </td>
           <td class="code">
             
-          <pre class="chroma"><code><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">a</span> <span class="o">=</span> <span class="s2">&#34;foo&#34;</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"><span class="nx">a</span> <span class="o">=</span> <span class="s2">&#34;bar&#34;</span><span class="p">;</span></span></span></code></pre>
+          <pre class="chroma"><code><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span> <span class="nx">foo</span><span class="o">:</span> <span class="mi">1</span> <span class="p">};</span>
+</span></span><span class="line"><span class="cl"><span class="nx">obj</span><span class="p">.</span><span class="nx">foo</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">obj</span><span class="p">);</span></span></span></code></pre>
           </td>
         </tr>
         
@@ -72,21 +74,11 @@ They cannot be reassigned.</p>
           <td class="docs">
             
           </td>
-          <td class="code leading">
-            
-          <pre class="chroma"><code><span class="line"><span class="cl"><span class="gp">$</span> node constant.js 
-</span></span><span class="line"><span class="cl"><span class="go">a = &#34;bar&#34;;
-</span></span></span><span class="line"><span class="cl"><span class="go">  ^</span></span></span></code></pre>
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            
-          </td>
           <td class="code">
             
-          <pre class="chroma"><code><span class="line"><span class="cl"><span class="go">TypeError: Assignment to constant variable.</span></span></span></code></pre>
+          <pre class="chroma"><code><span class="line"><span class="cl"><span class="gp">$</span> node constant.js 
+</span></span><span class="line"><span class="cl"><span class="go">constant 5000000000
+</span></span></span><span class="line"><span class="cl"><span class="go">{ foo: 2 }</span></span></span></code></pre>
           </td>
         </tr>
         
@@ -99,13 +91,13 @@ They cannot be reassigned.</p>
       
 
     <p class="footer">
-      by <a href="https://markmcgranaghan.com">Mark McGranaghan</a> and <a href="https://eli.thegreenplace.net">Eli Bendersky</a> | <a href="https://github.com/mmcgrana/gobyexample">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
+      <a href="https://github.com/mmcgrana/gobyexample">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
     </p>
 
     </div>
     <script>
       var codeLines = [];
-      codeLines.push('');codeLines.push('const s \u003D \"constant\";\u000Aconst n \u003D 5000000000;\u000A');codeLines.push('const a \u003D \"foo\";\u000Aa \u003D \"bar\";\u000A');codeLines.push('');codeLines.push('');
+      codeLines.push('');codeLines.push('const s \u003D \"constant\";\u000Aconst n \u003D 5000000000;\u000Aconsole.log(s, n);\u000A');codeLines.push('const obj \u003D { foo: 1 };\u000Aobj.foo \u003D 2;\u000Aconsole.log(obj);\u000A');codeLines.push('');
     </script>
     <script src="site.js" async></script>
   </body>

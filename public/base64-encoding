@@ -12,12 +12,12 @@
           }
           
           if (e.key == "ArrowLeft") {
-              window.location.href = 'sha256-hashes';
+              window.location.href = 'json';
           }
           
           
           if (e.key == "ArrowRight") {
-              window.location.href = 'reading-files';
+              window.location.href = 'command-line-arguments';
           }
           
       }
@@ -30,8 +30,7 @@
         
         <tr>
           <td class="docs">
-            <p>Go provides built-in support for <a href="https://en.wikipedia.org/wiki/Base64">base64
-encoding/decoding</a>.</p>
+            <p>JavaScript has built-in support for base64 encoding &amp; decoding.</p>
 
           </td>
           <td class="code empty leading">
@@ -42,27 +41,36 @@ encoding/decoding</a>.</p>
         
         <tr>
           <td class="docs">
-            
-          </td>
-          <td class="code leading">
-            <a href="https://go.dev/play/p/yztzkirFEvv"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
-          <pre class="chroma"><code><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span></span></span></code></pre>
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            <p>This syntax imports the <code>encoding/base64</code> package with
-the <code>b64</code> name instead of the default <code>base64</code>. It&rsquo;ll
-save us some space below.</p>
+            <p>Encoding a string.</p>
 
           </td>
           <td class="code leading">
             
-          <pre class="chroma"><code><span class="line"><span class="cl"><span class="kn">import</span> <span class="p">(</span>
-</span></span><span class="line"><span class="cl">    <span class="nx">b64</span> <span class="s">&#34;encoding/base64&#34;</span>
-</span></span><span class="line"><span class="cl">    <span class="s">&#34;fmt&#34;</span>
-</span></span><span class="line"><span class="cl"><span class="p">)</span></span></span></code></pre>
+          <pre class="chroma"><code><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">encodedData</span> <span class="o">=</span> <span class="nx">btoa</span><span class="p">(</span><span class="s2">&#34;Hello World&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">encodedData</span><span class="p">);</span></span></span></code></pre>
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>Decoding a string</p>
+
+          </td>
+          <td class="code leading">
+            
+          <pre class="chroma"><code><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">decodedData</span> <span class="o">=</span> <span class="nx">atob</span><span class="p">(</span><span class="nx">encodedData</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">decodedData</span><span class="p">);</span></span></span></code></pre>
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>We can also use a node.js buffer to encode/decode a string.</p>
+
+          </td>
+          <td class="code leading">
+            
+          <pre class="chroma"><code><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">bufferObj</span> <span class="o">=</span> <span class="nx">Buffer</span><span class="p">.</span><span class="nx">from</span><span class="p">(</span><span class="s2">&#34;Howdy Friends&#34;</span><span class="p">,</span> <span class="s2">&#34;utf8&#34;</span><span class="p">);</span></span></span></code></pre>
           </td>
         </tr>
         
@@ -72,64 +80,39 @@ save us some space below.</p>
           </td>
           <td class="code leading">
             
-          <pre class="chroma"><code><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span></span></span></code></pre>
+          <pre class="chroma"><code><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">base64String</span> <span class="o">=</span> <span class="nx">bufferObj</span><span class="p">.</span><span class="nx">toString</span><span class="p">(</span><span class="s2">&#34;base64&#34;</span><span class="p">);</span></span></span></code></pre>
           </td>
         </tr>
         
         <tr>
           <td class="docs">
-            <p>Here&rsquo;s the <code>string</code> we&rsquo;ll encode/decode.</p>
+            
+          </td>
+          <td class="code leading">
+            
+          <pre class="chroma"><code><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">base64String</span><span class="p">);</span></span></span></code></pre>
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>Decoding from buffer works the same way.</p>
 
           </td>
           <td class="code leading">
             
-          <pre class="chroma"><code><span class="line"><span class="cl">    <span class="nx">data</span> <span class="o">:=</span> <span class="s">&#34;abc123!?$*&amp;()&#39;-=@~&#34;</span></span></span></code></pre>
+          <pre class="chroma"><code><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">encodedBuffer</span> <span class="o">=</span> <span class="nx">Buffer</span><span class="p">.</span><span class="nx">from</span><span class="p">(</span><span class="nx">base64String</span><span class="p">,</span> <span class="s2">&#34;base64&#34;</span><span class="p">);</span></span></span></code></pre>
           </td>
         </tr>
         
         <tr>
           <td class="docs">
-            <p>Go supports both standard and URL-compatible
-base64. Here&rsquo;s how to encode using the standard
-encoder. The encoder requires a <code>[]byte</code> so we
-convert our <code>string</code> to that type.</p>
-
-          </td>
-          <td class="code leading">
             
-          <pre class="chroma"><code><span class="line"><span class="cl">    <span class="nx">sEnc</span> <span class="o">:=</span> <span class="nx">b64</span><span class="p">.</span><span class="nx">StdEncoding</span><span class="p">.</span><span class="nf">EncodeToString</span><span class="p">([]</span><span class="nb">byte</span><span class="p">(</span><span class="nx">data</span><span class="p">))</span>
-</span></span><span class="line"><span class="cl">    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">sEnc</span><span class="p">)</span></span></span></code></pre>
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            <p>Decoding may return an error, which you can check
-if you don&rsquo;t already know the input to be
-well-formed.</p>
-
-          </td>
-          <td class="code leading">
-            
-          <pre class="chroma"><code><span class="line"><span class="cl">    <span class="nx">sDec</span><span class="p">,</span> <span class="nx">_</span> <span class="o">:=</span> <span class="nx">b64</span><span class="p">.</span><span class="nx">StdEncoding</span><span class="p">.</span><span class="nf">DecodeString</span><span class="p">(</span><span class="nx">sEnc</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nb">string</span><span class="p">(</span><span class="nx">sDec</span><span class="p">))</span>
-</span></span><span class="line"><span class="cl">    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">()</span></span></span></code></pre>
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            <p>This encodes/decodes using a URL-compatible base64
-format.</p>
-
           </td>
           <td class="code">
             
-          <pre class="chroma"><code><span class="line"><span class="cl">    <span class="nx">uEnc</span> <span class="o">:=</span> <span class="nx">b64</span><span class="p">.</span><span class="nx">URLEncoding</span><span class="p">.</span><span class="nf">EncodeToString</span><span class="p">([]</span><span class="nb">byte</span><span class="p">(</span><span class="nx">data</span><span class="p">))</span>
-</span></span><span class="line"><span class="cl">    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">uEnc</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">    <span class="nx">uDec</span><span class="p">,</span> <span class="nx">_</span> <span class="o">:=</span> <span class="nx">b64</span><span class="p">.</span><span class="nx">URLEncoding</span><span class="p">.</span><span class="nf">DecodeString</span><span class="p">(</span><span class="nx">uEnc</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nb">string</span><span class="p">(</span><span class="nx">uDec</span><span class="p">))</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre>
+          <pre class="chroma"><code><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">decodedString</span> <span class="o">=</span> <span class="nx">encodedBuffer</span><span class="p">.</span><span class="nx">toString</span><span class="p">(</span><span class="s2">&#34;utf8&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">decodedString</span><span class="p">);</span></span></span></code></pre>
           </td>
         </tr>
         
@@ -139,27 +122,15 @@ format.</p>
         
         <tr>
           <td class="docs">
-            <p>The string encodes to slightly different values with the
-standard and URL base64 encoders (trailing <code>+</code> vs <code>-</code>)
-but they both decode to the original string as desired.</p>
-
-          </td>
-          <td class="code leading">
-            
-          <pre class="chroma"><code><span class="line"><span class="cl"><span class="gp">$</span> go run base64-encoding.go
-</span></span><span class="line"><span class="cl"><span class="go">YWJjMTIzIT8kKiYoKSctPUB+
-</span></span></span><span class="line"><span class="cl"><span class="go">abc123!?$*&amp;()&#39;-=@~</span></span></span></code></pre>
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
             
           </td>
           <td class="code">
             
-          <pre class="chroma"><code><span class="line"><span class="cl"><span class="go">YWJjMTIzIT8kKiYoKSctPUB-
-</span></span></span><span class="line"><span class="cl"><span class="go">abc123!?$*&amp;()&#39;-=@~</span></span></span></code></pre>
+          <pre class="chroma"><code><span class="line"><span class="cl"><span class="gp">$</span> node base64-encoding.js
+</span></span><span class="line"><span class="cl"><span class="go">SGVsbG8gV29ybGQ=
+</span></span></span><span class="line"><span class="cl"><span class="go">Hello World
+</span></span></span><span class="line"><span class="cl"><span class="go">SG93ZHkgRnJpZW5kcw==
+</span></span></span><span class="line"><span class="cl"><span class="go">Howdy Friends</span></span></span></code></pre>
           </td>
         </tr>
         
@@ -167,18 +138,18 @@ but they both decode to the original string as desired.</p>
       
       
       <p class="next">
-        Next example: <a href="reading-files" rel="next">Reading Files</a>.
+        Next example: <a href="command-line-arguments" rel="next">Command-Line Arguments</a>.
       </p>
       
 
     <p class="footer">
-      by <a href="https://markmcgranaghan.com">Mark McGranaghan</a> and <a href="https://eli.thegreenplace.net">Eli Bendersky</a> | <a href="https://github.com/mmcgrana/gobyexample">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
+      <a href="https://github.com/mmcgrana/gobyexample">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
     </p>
 
     </div>
     <script>
       var codeLines = [];
-      codeLines.push('');codeLines.push('');codeLines.push('');codeLines.push('');codeLines.push('');codeLines.push('');codeLines.push('');codeLines.push('');codeLines.push('');codeLines.push('');
+      codeLines.push('');codeLines.push('const encodedData \u003D btoa(\"Hello World\");\u000Aconsole.log(encodedData);\u000A');codeLines.push('const decodedData \u003D atob(encodedData);\u000Aconsole.log(decodedData);\u000A');codeLines.push('const bufferObj \u003D Buffer.from(\"Howdy Friends\", \"utf8\");\u000A');codeLines.push('const base64String \u003D bufferObj.toString(\"base64\");\u000A');codeLines.push('console.log(base64String);\u000A');codeLines.push('const encodedBuffer \u003D Buffer.from(base64String, \"base64\");\u000A');codeLines.push('const decodedString \u003D encodedBuffer.toString(\"utf8\");\u000Aconsole.log(decodedString);\u000A');codeLines.push('');
     </script>
     <script src="site.js" async></script>
   </body>

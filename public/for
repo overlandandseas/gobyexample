@@ -30,8 +30,7 @@
         
         <tr>
           <td class="docs">
-            <p><code>for</code> is Javascript&rsquo;s most basic looping construct. Here are
-some examples types of <code>for</code> loops.</p>
+            <p><code>for</code> loops exist in JavaScript to help iterator over items.</p>
 
           </td>
           <td class="code empty leading">
@@ -42,7 +41,7 @@ some examples types of <code>for</code> loops.</p>
         
         <tr>
           <td class="docs">
-            <p>The most basic type, with a three expressions.</p>
+            <p>The most basic type, with three expressions.</p>
 
           </td>
           <td class="code leading">
@@ -168,7 +167,7 @@ block to initialize variables:</p>
       
 
     <p class="footer">
-      by <a href="https://markmcgranaghan.com">Mark McGranaghan</a> and <a href="https://eli.thegreenplace.net">Eli Bendersky</a> | <a href="https://github.com/mmcgrana/gobyexample">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
+      <a href="https://github.com/mmcgrana/gobyexample">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
     </p>
 
     </div>

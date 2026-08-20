@@ -4,3 +4,4 @@ $ node if-else.js
 either 8 or 7 are even
 5 is not less than three
 odd
+String is truthy

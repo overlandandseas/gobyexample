@@ -1,7 +1,7 @@
-$ go run switch.go 
+$ node switch.js
 Write 2 as two
-It's a weekday
-It's after noon
 I'm a bool
-I'm an int
-Don't know type string
+I'm a number
+I'm a string
+Don't know type object
+

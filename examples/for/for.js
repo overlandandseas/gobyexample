@@ -1,8 +1,6 @@
-// `for` is Javascript's most basic looping construct. Here are
-// some examples types of `for` loops.
+// `for` loops exist in JavaScript to help iterator over items.
 
-
-// The most basic type, with a three expressions.
+// The most basic type, with three expressions.
 for (let i = 1; i <= 3; i++) {
 	console.log(i);
 }
